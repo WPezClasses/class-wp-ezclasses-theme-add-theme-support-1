@@ -36,13 +36,32 @@ if (!defined('ABSPATH')) {
 if ( ! class_exists('Class_WP_ezClasses_Theme_Add_Theme_Support_1') ) {
   class Class_WP_ezClasses_Theme_Add_Theme_Support_1 extends Class_WP_ezClasses_Master_Singleton{
   
+    private $_version;
+	private $_url;
+	private	$_path;
+	private $_path_parent;
+	private $_basename;
+	private $_file;
+  
     protected $_arr_init;
 		
 	public function __construct() {
 	  parent::__construct();
 	}
 	
-	public function ezc_init($arr_args = ''){
+	public function ez__construct($arr_args = ''){
+	  $this->setup();
+	}
+	
+	
+	protected function setup(){
+	
+	  $this->_version = '0.5.0';
+	  $this->_url = plugin_dir_url( __FILE__ );
+	  $this->_path = plugin_dir_path( __FILE__ );
+	  $this->_path_parent = dirname($this->_path);
+	  $this->_basename = plugin_basename( __FILE__ );
+	  $this->_file = __FILE__ ;	
 	
 	}
 	
@@ -51,7 +70,7 @@ if ( ! class_exists('Class_WP_ezClasses_Theme_Add_Theme_Support_1') ) {
 	 */
 	public function ez_ats($arr_args = ''){
 	
-	  if (WP_ezMethods::array_pass($arr_args) ){
+	  if (WPezHelpers::ez_array_pass($arr_args) ){
 	  
 	    foreach ( $arr_args as $str_key => $arr_value ){
 	

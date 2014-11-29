@@ -1,7 +1,9 @@
 # Org: WPezClasses
 ### Product: Class_WP_ezClasses_Theme_Add_Theme_Support_1
 
-##### WordPress add_theme_support() an ez makeover.  
+##### WordPress add_theme_support() an ez makeover. 
+
+In short, this is probably how add_theme_support() should have been all along.  
 
 ===============================================================================================
 
