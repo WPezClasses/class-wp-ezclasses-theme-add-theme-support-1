@@ -85,7 +85,16 @@ if ( ! class_exists('Class_WP_ezClasses_Theme_Add_Theme_Support_1') ) {
 			        $arr_args_true[] = $str_arg_key;
 			      }
 			    }
-			    add_theme_support($arr_value['feature'], $arr_args_true );
+				
+				/*
+				 * if we specify which post_types to support then it will only support those post_types. this
+				 * also means that custom CPTs might get mucked up
+				 */
+				if (  $arr_value['feature'] == 'post-thumbnails' && empty($arr_args_true) ){
+				  add_theme_support($arr_value['feature']);
+				} else {
+			      add_theme_support($arr_value['feature'], $arr_args_true );
+				}
 		 
 			  } elseif ( isset($arr_value['args']) && is_array($arr_value['args']) ){
 			
